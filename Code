@@ -1,0 +1,67 @@
+#Made by ParkerTalley
+#Rock Paper Scissors
+#Enter a string of either rock, paper, or scissors and it will randomly generate a computer response and keep track of the score.
+score = 0
+comp_score = 0
+def game():
+    # Rock, Paper, Scissors
+    global score
+    global comp_score
+    score = str(score)
+    comp_score = str(comp_score)
+    import random
+    comp_choice = random.randrange(0,3)
+    if comp_choice == 0:
+        comp_choice = 'Scissors'
+    if comp_choice == 1:
+        comp_choice = 'Rock'
+    if comp_choice == 2:
+        comp_choice = 'Paper'
+    #0 = Scissors
+    #1 = Rock
+    #2 = Paper
+    comp_score = int(comp_score)
+    score = int(score)
+    human = input('Enter Rock, Paper, or Scissors: ').upper().lower()
+    # Rock vs Scissors
+    if human == 'Rock'.upper().lower() and comp_choice == 'Scissors':
+        score +=1
+        print('You Won! You chose: '+human + ', The computer chose: ' + comp_choice +'\nYour Score: ' + str(score) + '. Computer Score: ' + str(comp_score)+'\n')
+    # Rock vs Rock
+    if human == 'Rock'.upper().lower() and comp_choice == 'Rock':
+       print('Tied, you both chose Rock.\nYour Score: '+ str(score) + '. Computer Score: ' + str(comp_score))
+    # Rock vs Paper
+    if human == 'Rock'.upper().lower() and comp_choice == 'Paper':
+        comp_score += 1
+        print('You Lost! You chose: '+human + ', The computer chose: ' + comp_choice +'\nYour Score: ' + str(score) + '. Computer Score: ' + str(comp_score)+'\n')
+    # Paper vs Rock
+    if human == 'Paper'.upper().lower() and comp_choice == 'Rock':
+        score +=1
+        print('You Won! You chose: '+human + ', The computer chose: ' + comp_choice +'\nYour Score: ' + str(score) + '. Computer Score: ' + str(comp_score)+'\n')
+    # Paper vs Paper
+    if human == 'Paper'.upper().lower() and comp_choice == 'Paper':
+        print('Tied, you both chose Paper.\nYour Score: '+ str(score) + '. Computer Score: ' + str(comp_score))
+    # Paper vs Scissors
+    if human == 'Paper'.upper().lower() and comp_choice == 'Scissors':
+        comp_score += 1
+        print('You Lost! You chose: '+human + ', The computer chose: ' + comp_choice +'\nYour Score: ' + str(score) + '. Computer Score: ' + str(comp_score)+'\n')
+    # Scissors vs Paper
+    if human == 'Scissors'.upper().lower() and comp_choice == 'Paper':
+        score +=1
+        print('You Won! You chose: '+human + ', The computer chose: ' + comp_choice +'\nYour Score: ' + str(score) + '. Computer Score: ' + str(comp_score)+'\n')
+    # Scissors vs Scissors
+    if human == 'Scissors'.upper().lower() and comp_choice == 'Scissors':
+        print('Tied, you both chose Scissors.\nYour Score: '+ str(score) + '. Computer Score: ' + str(comp_score))
+    # Scissors vs Rock
+    if human == 'Scissors'.upper().lower() and comp_choice == 'Rock':
+        comp_score += 1
+        print('You Lost! You chose: '+human + ', The computer chose: ' + comp_choice +'\nYour Score: ' + str(score) + '. Computer Score: ' + str(comp_score)+'\n')
+    replay = input('\nDo you want to play again? Y/N: ').upper().lower()
+    if replay == 'N'.upper().lower():
+        print('Your Score: ' + str(score) + ' Computer Score: ' + str(comp_score))
+        exit('Thanks for Playing!')
+    if replay =='Y'.upper().lower():
+        game()
+game()
+
+
